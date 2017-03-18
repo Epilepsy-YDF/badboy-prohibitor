@@ -1,0 +1,9 @@
+E:\vsprojects\badboy-prohibitor\badboy-prohibitor\bin\Release\badboy-prohibitor.exe.config
+E:\vsprojects\badboy-prohibitor\badboy-prohibitor\bin\Release\badboy-prohibitor.exe
+E:\vsprojects\badboy-prohibitor\badboy-prohibitor\bin\Release\badboy-prohibitor.pdb
+E:\vsprojects\badboy-prohibitor\badboy-prohibitor\obj\Release\badboy-prohibitor.csprojResolveAssemblyReference.cache
+E:\vsprojects\badboy-prohibitor\badboy-prohibitor\obj\Release\badboy_prohibitor.MainWindow.resources
+E:\vsprojects\badboy-prohibitor\badboy-prohibitor\obj\Release\badboy_prohibitor.Properties.Resources.resources
+E:\vsprojects\badboy-prohibitor\badboy-prohibitor\obj\Release\badboy-prohibitor.csproj.GenerateResource.Cache
+E:\vsprojects\badboy-prohibitor\badboy-prohibitor\obj\Release\badboy-prohibitor.exe
+E:\vsprojects\badboy-prohibitor\badboy-prohibitor\obj\Release\badboy-prohibitor.pdb

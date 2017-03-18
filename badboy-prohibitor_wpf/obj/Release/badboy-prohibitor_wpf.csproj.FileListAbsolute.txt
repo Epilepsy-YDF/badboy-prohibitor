@@ -1,0 +1,14 @@
+E:\vsprojects\badboy-prohibitor\badboy-prohibitor_wpf\bin\Release\badboy-prohibitor_wpf.exe.config
+E:\vsprojects\badboy-prohibitor\badboy-prohibitor_wpf\bin\Release\badboy-prohibitor_wpf.exe
+E:\vsprojects\badboy-prohibitor\badboy-prohibitor_wpf\bin\Release\badboy-prohibitor_wpf.pdb
+E:\vsprojects\badboy-prohibitor\badboy-prohibitor_wpf\obj\Release\badboy-prohibitor_wpf.csprojResolveAssemblyReference.cache
+E:\vsprojects\badboy-prohibitor\badboy-prohibitor_wpf\obj\Release\MainWindow.g.cs
+E:\vsprojects\badboy-prohibitor\badboy-prohibitor_wpf\obj\Release\App.g.cs
+E:\vsprojects\badboy-prohibitor\badboy-prohibitor_wpf\obj\Release\badboy-prohibitor_wpf_MarkupCompile.cache
+E:\vsprojects\badboy-prohibitor\badboy-prohibitor_wpf\obj\Release\badboy-prohibitor_wpf_MarkupCompile.lref
+E:\vsprojects\badboy-prohibitor\badboy-prohibitor_wpf\obj\Release\MainWindow.baml
+E:\vsprojects\badboy-prohibitor\badboy-prohibitor_wpf\obj\Release\badboy-prohibitor_wpf.g.resources
+E:\vsprojects\badboy-prohibitor\badboy-prohibitor_wpf\obj\Release\badboy_prohibitor_wpf.Properties.Resources.resources
+E:\vsprojects\badboy-prohibitor\badboy-prohibitor_wpf\obj\Release\badboy-prohibitor_wpf.csproj.GenerateResource.Cache
+E:\vsprojects\badboy-prohibitor\badboy-prohibitor_wpf\obj\Release\badboy-prohibitor_wpf.exe
+E:\vsprojects\badboy-prohibitor\badboy-prohibitor_wpf\obj\Release\badboy-prohibitor_wpf.pdb
