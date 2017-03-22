@@ -5,24 +5,33 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:badboy_prohibitor"
         mc:Ignorable="d"
-        Title="badboy-prihibitor V1.0" Height="440" Width="840" FontFamily="Microsoft YaHei UI Light" FontSize="16">
+        Title="badboy-prihibitor V1.0" Height="448" Width="840" FontFamily="Microsoft YaHei UI Light" FontSize="16">
     <Grid>
-        <GroupBox Header="游戏/软件/网络管理" HorizontalAlignment="Left" Height="387" Margin="10,10,0,0" VerticalAlignment="Top" Width="259">
+        <GroupBox x:Name="gsnman" Header="游戏/软件/网络管理" HorizontalAlignment="Left" Height="387" Margin="10,10,0,0" VerticalAlignment="Top" Width="259">
             <Grid HorizontalAlignment="Left" Height="387" VerticalAlignment="Top" Width="259">
-                <CheckBox x:Name="tgp" Content="禁止TGP运行" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <CheckBox x:Name="tgp" Content="禁止TGP运行" HorizontalAlignment="Left" VerticalAlignment="Top" Checked="CheckBox_Checked"/>
                 <CheckBox x:Name="lol" Content="禁止英雄联盟运行" HorizontalAlignment="Left" Margin="0,24,0,0" VerticalAlignment="Top"/>
                 <CheckBox x:Name="crossfire" Content="禁止穿越火线运行" HorizontalAlignment="Left" Margin="0,48,0,0" VerticalAlignment="Top"/>
                 <CheckBox x:Name="speed" Content="禁止QQ飞车运行" HorizontalAlignment="Left" Margin="0,72,0,0" VerticalAlignment="Top"/>
                 <CheckBox x:Name="x5" Content="禁止QQ炫舞运行" HorizontalAlignment="Left" Margin="0,96,0,0" VerticalAlignment="Top"/>
                 <CheckBox x:Name="dnf" Content="禁止地下城与勇士运行" HorizontalAlignment="Left" Margin="0,120,0,0" VerticalAlignment="Top"/>
                 <CheckBox x:Name="mc" Content="禁止我的世界运行" HorizontalAlignment="Left" Margin="0,144,0,0" VerticalAlignment="Top"/>
-                <CheckBox x:Name="mcbox" Content="禁止炸妈盒子运行" HorizontalAlignment="Left" Margin="0,168,0,0" VerticalAlignment="Top"/>
+                <CheckBox x:Name="mcbox" Content="禁止炸妈盒子运行" HorizontalAlignment="Left" Margin="0,168,0,0" VerticalAlignment="Top" Checked="mcbox_Checked"/>
                 <CheckBox x:Name="steam" Content="禁止Steam 运行" HorizontalAlignment="Left" Margin="0,192,0,0" VerticalAlignment="Top"/>
-                <CheckBox x:Name="_4399" Content="禁止访问4399" HorizontalAlignment="Left" Margin="0,216,0,0" VerticalAlignment="Top" Checked="_4399_Checked" Unchecked="_4399_Unchecked"/>
+                <CheckBox x:Name="_4399" Content="禁止访问4399" Margin="0,216,139,0" VerticalAlignment="Top" Checked="_4399_Checked" Unchecked="_4399_Unchecked"/>
                 <CheckBox x:Name="_3366" Content="禁止访问3366" HorizontalAlignment="Left" Margin="0,240,0,0" VerticalAlignment="Top" Checked="_3366_Checked" Unchecked="_3366_Unchecked"/>
-                <CheckBox x:Name="_7k7k" Content="禁止访问7k7k" HorizontalAlignment="Left" Margin="0,264,0,0" VerticalAlignment="Top"/>
+                <CheckBox x:Name="_7k7k" Content="禁止访问7k7k" HorizontalAlignment="Left" Margin="0,264,0,0" VerticalAlignment="Top" Unchecked="_7k7k_Unchecked" Checked="_7k7k_Checked_1"/>
                 <CheckBox x:Name="selectAll" Content="全选" HorizontalAlignment="Left" Margin="194,288,0,0" VerticalAlignment="Top" Checked="selectAll_Checked" Unchecked="selectAll_Unchecked"/>
-                <Button x:Name="custom" Content="自定义规则" HorizontalAlignment="Left" Margin="0,312,0,0" VerticalAlignment="Top" Width="246" Height="45"/>
+                <Button x:Name="custom" Content="自定义规则" HorizontalAlignment="Left" Margin="0,312,0,0" VerticalAlignment="Top" Width="246" Height="45" FontSize="24"/>
+            </Grid>
+        </GroupBox>
+        <Button x:Name="About" Content="关于本软件" HorizontalAlignment="Left" Margin="617,375,0,0" VerticalAlignment="Top" Width="100" Click="About_Click"/>
+        <Button x:Name="exit" Content="退出" HorizontalAlignment="Left" Margin="722,375,0,0" VerticalAlignment="Top" Width="100" Click="exit_Click"/>
+        <GroupBox x:Name="sft" Header="安全性" HorizontalAlignment="Left" Height="96" Margin="583,10,0,0" VerticalAlignment="Top" Width="239">
+            <Grid HorizontalAlignment="Left" Height="96" VerticalAlignment="Top" Width="239" Margin="0,0,-12,-26">
+                <CheckBox x:Name="pw" Content="设置启动/退出密码" HorizontalAlignment="Left" VerticalAlignment="Top" Checked="pw_Checked" Unchecked="pw_Unchecked"/>
+                <PasswordBox x:Name="pb" HorizontalAlignment="Left" Margin="20,24,0,0" VerticalAlignment="Top" Width="209" IsEnabled="False"/>
+                <CheckBox x:Name="dsbtaskmgr" Content="禁用任务管理器" HorizontalAlignment="Left" Margin="-1,51,0,0" VerticalAlignment="Top" Checked="dsbtaskmgr_Checked" Unchecked="dsbtaskmgr_Unchecked_1"/>
             </Grid>
         </GroupBox>
 

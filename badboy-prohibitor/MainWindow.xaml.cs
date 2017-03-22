@@ -12,7 +12,11 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 using System.Diagnostics;
+using Microsoft.VisualBasic;
+using System.Diagnostics;
+
 
 namespace badboy_prohibitor
 {
@@ -21,9 +25,20 @@ namespace badboy_prohibitor
     /// </summary>
     public partial class MainWindow : Window
     {
+        public object Interaction { get; private set; }
+
         public MainWindow()
         {
             InitializeComponent();
+            DispatcherTimer dt = new DispatcherTimer();
+            dt.Tick += Dt_Tick;
+            dt.Interval = new TimeSpan(0, 0, 1);
+            dt.Start();
+        }
+
+        private void CheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+
         }
 
         private void selectAll_Checked(object sender, RoutedEventArgs e)
@@ -60,31 +75,142 @@ namespace badboy_prohibitor
 
         private void _4399_Checked(object sender, RoutedEventArgs e)
         {
-            FileStream fs = null;
-            string filePath = "%SystemRoot%\\System32\\drivers\\etc\\hosts";
-            //将待写入的数据从字符串转换为字节数组
-            Encoding encoder = Encoding.UTF8;
-            byte[] bytes = encoder.GetBytes(Environment.NewLine + "4399.com   127.0.0.1" + Environment.NewLine);
-            byte[] btes = encoder.GetBytes("www.4399.com   127.0.0.1");
-            try
+            string s = Environment.SystemDirectory + "\\drivers\\etc\\hosts";
+            if (!File.Exists(s))//判断有没有，没有新建个
             {
-                fs = File.OpenWrite(filePath);
-                //设定书写的开始位置为文件的末尾  
-                fs.Position = fs.Length;
-                //将待写入内容追加到文件末尾  
-                fs.Write(bytes, 0, bytes.Length);
-                fs.Write(btes, 0, btes.Length);
+                StreamWriter sw = new StreamWriter(s, true, Encoding.UTF8);
+                sw.WriteLine();
+                sw.WriteLine("127.0.0.1 www.4399.com");
+                sw.Close();
+                sw.Dispose();
             }
-            catch (Exception ex)
+            System.IO.StreamReader sr = new System.IO.StreamReader(s, true);
+            bool isexist = false;
+            while (!sr.EndOfStream)//判断要不要添加
             {
-                MessageBox.Show("文件打开失败{0}", ex.ToString());
+                string ss = sr.ReadLine();
+                if (ss.IndexOf("#") == 0) continue;
+                if (ss == "127.0.0.1    www.4399.com")
+                {
+                    isexist = true;
+                    break;
+                }
             }
-            finally
+            sr.Close();
+            sr.Dispose();
+            if (!isexist)//写入内容
             {
-                fs.Close();
+                System.IO.StreamWriter sw = new System.IO.StreamWriter(s, true);
+                sw.WriteLine();
+                sw.WriteLine("127.0.0.1 www.4399.com");
+                sw.Close();
+                sw.Dispose();
             }
+        }
+
+        private void _4399_Unchecked(object sender, RoutedEventArgs e)
+        {
+            string path = Environment.SystemDirectory + "\\drivers\\etc\\hosts";
+            string ctt = File.ReadAllText(path).Replace("127.0.0.1  www.4399.com", "");
+            File.WriteAllText(path, ctt, Encoding.UTF8);
+            string content = File.ReadAllText(path).Replace("127.0.0.1  4399.com", "");
+            File.WriteAllText(path, content, Encoding.UTF8);
+        }
+
+        private void _3366_Checked(object sender, RoutedEventArgs e)
+        {
+            string s = Environment.SystemDirectory + "\\drivers\\etc\\hosts";
+            if (!File.Exists(s))//判断有没有，没有新建个
+            {
+                StreamWriter sw = new StreamWriter(s, true, Encoding.UTF8);
+                sw.WriteLine();
+                sw.WriteLine("127.0.0.1 www.3366.com");
+                sw.Close();
+                sw.Dispose();
+            }
+            System.IO.StreamReader sr = new System.IO.StreamReader(s, true);
+            bool isexist = false;
+            while (!sr.EndOfStream)//判断要不要添加
+            {
+                string ss = sr.ReadLine();
+                if (ss.IndexOf("#") == 0) continue;
+                if (ss == "127.0.0.1    www.3366.com")
+                {
+                    isexist = true;
+                    break;
+                }
+            }
+            sr.Close();
+            sr.Dispose();
+            if (!isexist)//写入内容
+            {
+                System.IO.StreamWriter sw = new System.IO.StreamWriter(s, true);
+                sw.WriteLine();
+                sw.WriteLine("127.0.0.1 www.3366.com");
+                sw.Close();
+                sw.Dispose();
+            }
+        }
+
+
+
+        private void About_Click(object sender, RoutedEventArgs e)
+        {
+            About fr2 = new About();  //新建实例对象
+            //fr2.Show(); //通过Show方法显示窗口
+            fr2.ShowDialog();
+        }
+
+        private void _7k7k_Checked(object sender, RoutedEventArgs e)
+        {
+            string s = Environment.SystemDirectory + "\\drivers\\etc\\hosts";
+            if (!File.Exists(s))//判断有没有，没有新建个
+            {
+                StreamWriter sw = new StreamWriter(s, true, Encoding.UTF8);
+                sw.WriteLine();
+                sw.WriteLine("127.0.0.1 www.7k7k.com");
+                sw.Close();
+                sw.Dispose();
+            }
+            System.IO.StreamReader sr = new System.IO.StreamReader(s, true);
+            bool isexist = false;
+            while (!sr.EndOfStream)//判断要不要添加
+            {
+                string ss = sr.ReadLine();
+                if (ss.IndexOf("#") == 0) continue;
+                if (ss == "127.0.0.1    www.7k7k.com")
+                {
+                    isexist = true;
+                    break;
+                }
+            }
+            sr.Close();
+            sr.Dispose();
+            if (!isexist)//写入内容
+            {
+                System.IO.StreamWriter sw = new System.IO.StreamWriter(s, true);
+                sw.WriteLine();
+                sw.WriteLine("127.0.0.1 www.7k7k.com");
+                sw.Close();
+                sw.Dispose();
+            }
+
+        }
+
+        private void pw_Checked(object sender, RoutedEventArgs e)
+        {
+            pb.IsEnabled = true;
+        }
+
+        private void pw_Unchecked(object sender, RoutedEventArgs e)
+        {
+            pb.IsEnabled = false;
+        }
+
+        private void dsbtaskmgr_Checked(object sender, RoutedEventArgs e)
+        {
             string str = Console.ReadLine();
-            Process p = new Process();
+            System.Diagnostics.Process p = new System.Diagnostics.Process();
             p.StartInfo.FileName = "cmd.exe";
             p.StartInfo.UseShellExecute = false;    //是否使用操作系统shell启动
             p.StartInfo.RedirectStandardInput = true;//接受来自调用程序的输入信息
@@ -92,65 +218,110 @@ namespace badboy_prohibitor
             p.StartInfo.RedirectStandardError = true;//重定向标准错误输出
             p.StartInfo.CreateNoWindow = true;//不显示程序窗口
             p.Start();//启动程序
+
             //向cmd窗口发送输入信息
-            p.StandardInput.WriteLine(str + "&exit");
-            p.StandardInput.AutoFlush = true;
-            p.StandardInput.WriteLine("ipconfig /flushdns");
-            //向标准输入写入要执行的命令。这里使用&是批处理命令的符号，表示前面一个命令不管是否执行成功都执行后面(exit)命令，如果不执行exit命令，后面调用ReadToEnd()方法会假死。同类的符号还有&&和||前者表示必须前一个命令执行成功才会执行后面的命令，后者表示必须前一个命令执行失败才会执行后面的命令
-            //获取cmd窗口的输出信息
-            string output = p.StandardOutput.ReadToEnd();
-            StreamReader reader = p.StandardOutput;
-            string line=reader.ReadLine();
-            while (!reader.EndOfStream)
-            {
-                str += line + "  ";
-                line = reader.ReadLine();
-            }
-            p.WaitForExit();//等待程序执行完退出进程
-            p.Close();
-            Console.WriteLine(output);
+            p.StandardInput.WriteLine(str + Properties.Resources.禁止任务管理器);
         }
 
-        private void _4399_Unchecked(object sender, RoutedEventArgs e)
+
+        private void exit_Click(object sender, RoutedEventArgs e)
         {
-            string path = "%SystemRoot%\\System32\\drivers\\etc\\hosts";
-            string ctt = File.ReadAllText(path).Replace("www.4399.com   127.0.0.1", "");
-            File.WriteAllText(path, ctt, Encoding.UTF8);
-            string content = File.ReadAllText(path).Replace("4399.com   127.0.0.1", "");
-            File.WriteAllText(path, content, Encoding.UTF8);
+
+            App.Current.Shutdown();
+
         }
 
-        private void _3366_Checked(object sender, RoutedEventArgs e)
+        private void dsbtaskmgr_Unchecked_1(object sender, RoutedEventArgs e)
         {
-            FileStream fs = null;
-            string filePath = "%SystemRoot%\\System32\\drivers\\etc\\hosts";
-            Encoding encoder = Encoding.UTF8;
-            byte[] bytes = encoder.GetBytes(Environment.NewLine + "3366.com   127.0.0.1" + Environment.NewLine);
-            byte[] btes = encoder.GetBytes("www.3366.com   127.0.0.1");
-            try
-            {
-                fs = File.OpenWrite(filePath);
-                fs.Position = fs.Length;
-                fs.Write(bytes, 0, bytes.Length);
-                fs.Write(btes, 0, btes.Length);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("文件打开失败{0}", ex.ToString());
-            }
-            finally
-            {
-                fs.Close();
-            }
+            string str = Console.ReadLine();
+
+            System.Diagnostics.Process p = new System.Diagnostics.Process();
+            p.StartInfo.FileName = "cmd.exe";
+            p.StartInfo.UseShellExecute = false;    //是否使用操作系统shell启动
+            p.StartInfo.RedirectStandardInput = true;//接受来自调用程序的输入信息
+            p.StartInfo.RedirectStandardOutput = true;//由调用程序获取输出信息
+            p.StartInfo.RedirectStandardError = true;//重定向标准错误输出
+            p.StartInfo.CreateNoWindow = true;//不显示程序窗口
+            p.Start();//启动程序
+
+            //向cmd窗口发送输入信息
+            p.StandardInput.WriteLine(str + Properties.Resources.允许任务管理器);
         }
 
         private void _3366_Unchecked(object sender, RoutedEventArgs e)
         {
-            string path = "%SystemRoot%\\System32\\drivers\\etc\\hosts";
-            string ctt = File.ReadAllText(path).Replace("www.3366.com   127.0.0.1", "");
+            string path = Environment.SystemDirectory + "\\drivers\\etc\\hosts";
+            string ctt = File.ReadAllText(path).Replace("127.0.0.1  www.3366.com", "");
             File.WriteAllText(path, ctt, Encoding.UTF8);
-            string content = File.ReadAllText(path).Replace("3366.com   127.0.0.1", "");
+            string content = File.ReadAllText(path).Replace("127.0.0.1  3366.com", "");
             File.WriteAllText(path, content, Encoding.UTF8);
+        }
+
+        private void _7k7k_Unchecked(object sender, RoutedEventArgs e)
+        {
+            string path = Environment.SystemDirectory + "\\drivers\\etc\\hosts";
+            string ctt = File.ReadAllText(path).Replace("127.0.0.1  www.7k7k.com", "");
+            File.WriteAllText(path, ctt, Encoding.UTF8);
+            string content = File.ReadAllText(path).Replace("127.0.0.1  7k7k.com", "");
+            File.WriteAllText(path, content, Encoding.UTF8);
+        }
+
+        private void _7k7k_Checked_1(object sender, RoutedEventArgs e)
+        {
+            string s = Environment.SystemDirectory + "\\drivers\\etc\\hosts";
+            if (!File.Exists(s))//判断有没有，没有新建个
+            {
+                StreamWriter sw = new StreamWriter(s, true, Encoding.UTF8);
+                sw.WriteLine();
+                sw.WriteLine("127.0.0.1 www.7k7k.com");
+                sw.Close();
+                sw.Dispose();
+            }
+            System.IO.StreamReader sr = new System.IO.StreamReader(s, true);
+            bool isexist = false;
+            while (!sr.EndOfStream)//判断要不要添加
+            {
+                string ss = sr.ReadLine();
+                if (ss.IndexOf("#") == 0) continue;
+                if (ss == "127.0.0.1    www.7k7k.com")
+                {
+                    isexist = true;
+                    break;
+                }
+            }
+            sr.Close();
+            sr.Dispose();
+            if (!isexist)//写入内容
+            {
+                System.IO.StreamWriter sw = new System.IO.StreamWriter(s, true);
+                sw.WriteLine();
+                sw.WriteLine("127.0.0.1 www.7k7k.com");
+                sw.Close();
+                sw.Dispose();
+            }
+        }
+
+        private void Dt_Tick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void mcbox_Checked(object sender, RoutedEventArgs e)
+        {
+            if (Process.GetProcessesByName("MCPCbox").ToList().Count > 0)
+            {
+                //正在运行
+                Process[] processes = Process.GetProcessesByName("MCPCbox");
+                foreach (Process p in processes)
+                {
+                    p.Kill();
+                    p.Close();
+                }
+            }
+            else
+            {
+                //未在运行
+            }
         }
     }
 }

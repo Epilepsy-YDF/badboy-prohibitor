@@ -59,5 +59,23 @@ namespace badboy_prohibitor.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   查找类似 reg add &quot;HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\System&quot; /v &quot;DisableTaskMgr&quot; /t REG_DWORD /F /d 0 的本地化字符串。
+        /// </summary>
+        internal static string 允许任务管理器 {
+            get {
+                return ResourceManager.GetString("允许任务管理器", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 reg add &quot;HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\System&quot; /v &quot;DisableTaskMgr&quot; /t REG_DWORD /F /d 1 的本地化字符串。
+        /// </summary>
+        internal static string 禁止任务管理器 {
+            get {
+                return ResourceManager.GetString("禁止任务管理器", resourceCulture);
+            }
+        }
     }
 }
