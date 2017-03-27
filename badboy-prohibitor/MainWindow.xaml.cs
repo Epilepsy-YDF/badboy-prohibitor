@@ -15,7 +15,6 @@ using System.Windows.Shapes;
 using System.Windows.Threading;
 using System.Diagnostics;
 using Microsoft.VisualBasic;
-using System.Diagnostics;
 
 
 namespace badboy_prohibitor
@@ -23,13 +22,37 @@ namespace badboy_prohibitor
     /// <summary>
     /// MainWindow.xaml 的交互逻辑
     /// </summary>
+    
     public partial class MainWindow : Window
     {
-        public object Interaction { get; private set; }
 
+        //public object Interaction { get; private set; }
+
+        private void killTask(string 进程名)
+        {
+
+            if (Process.GetProcessesByName(进程名).ToList().Count > 0)
+            {
+                //正在运行
+                Process[] processes = Process.GetProcessesByName(进程名);
+                foreach (Process p in processes)
+                {
+                    p.Kill();
+                    p.Close();
+                    //steamroorreporter.exe
+                }
+            }
+            else
+            {
+
+                //未在运行
+            }
+
+        }
         public MainWindow()
         {
             InitializeComponent();
+
             DispatcherTimer dt = new DispatcherTimer();
             dt.Tick += Dt_Tick;
             dt.Interval = new TimeSpan(0, 0, 1);
@@ -90,7 +113,7 @@ namespace badboy_prohibitor
             {
                 string ss = sr.ReadLine();
                 if (ss.IndexOf("#") == 0) continue;
-                if (ss == "127.0.0.1    www.4399.com")
+                if (ss == "127.0.0.1 www.4399.com")
                 {
                     isexist = true;
                     break;
@@ -111,9 +134,9 @@ namespace badboy_prohibitor
         private void _4399_Unchecked(object sender, RoutedEventArgs e)
         {
             string path = Environment.SystemDirectory + "\\drivers\\etc\\hosts";
-            string ctt = File.ReadAllText(path).Replace("127.0.0.1  www.4399.com", "");
+            string ctt = File.ReadAllText(path).Replace("127.0.0.1 www.4399.com", "");
             File.WriteAllText(path, ctt, Encoding.UTF8);
-            string content = File.ReadAllText(path).Replace("127.0.0.1  4399.com", "");
+            string content = File.ReadAllText(path).Replace("127.0.0.1 4399.com", "");
             File.WriteAllText(path, content, Encoding.UTF8);
         }
 
@@ -134,7 +157,7 @@ namespace badboy_prohibitor
             {
                 string ss = sr.ReadLine();
                 if (ss.IndexOf("#") == 0) continue;
-                if (ss == "127.0.0.1    www.3366.com")
+                if (ss == "127.0.0.1 www.3366.com")
                 {
                     isexist = true;
                     break;
@@ -235,7 +258,7 @@ namespace badboy_prohibitor
         {
             string str = Console.ReadLine();
 
-            System.Diagnostics.Process p = new System.Diagnostics.Process();
+            Process p = new Process();
             p.StartInfo.FileName = "cmd.exe";
             p.StartInfo.UseShellExecute = false;    //是否使用操作系统shell启动
             p.StartInfo.RedirectStandardInput = true;//接受来自调用程序的输入信息
@@ -251,18 +274,18 @@ namespace badboy_prohibitor
         private void _3366_Unchecked(object sender, RoutedEventArgs e)
         {
             string path = Environment.SystemDirectory + "\\drivers\\etc\\hosts";
-            string ctt = File.ReadAllText(path).Replace("127.0.0.1  www.3366.com", "");
+            string ctt = File.ReadAllText(path).Replace("127.0.0.1 www.3366.com", "");
             File.WriteAllText(path, ctt, Encoding.UTF8);
-            string content = File.ReadAllText(path).Replace("127.0.0.1  3366.com", "");
+            string content = File.ReadAllText(path).Replace("127.0.0.1 3366.com", "");
             File.WriteAllText(path, content, Encoding.UTF8);
         }
 
         private void _7k7k_Unchecked(object sender, RoutedEventArgs e)
         {
             string path = Environment.SystemDirectory + "\\drivers\\etc\\hosts";
-            string ctt = File.ReadAllText(path).Replace("127.0.0.1  www.7k7k.com", "");
+            string ctt = File.ReadAllText(path).Replace("127.0.0.1 www.7k7k.com", "");
             File.WriteAllText(path, ctt, Encoding.UTF8);
-            string content = File.ReadAllText(path).Replace("127.0.0.1  7k7k.com", "");
+            string content = File.ReadAllText(path).Replace("127.0.0.1 7k7k.com", "");
             File.WriteAllText(path, content, Encoding.UTF8);
         }
 
@@ -283,7 +306,7 @@ namespace badboy_prohibitor
             {
                 string ss = sr.ReadLine();
                 if (ss.IndexOf("#") == 0) continue;
-                if (ss == "127.0.0.1    www.7k7k.com")
+                if (ss == "127.0.0.1 www.7k7k.com")
                 {
                     isexist = true;
                     break;
@@ -303,25 +326,29 @@ namespace badboy_prohibitor
 
         private void Dt_Tick(object sender, EventArgs e)
         {
-
+            if (mcbox.IsChecked == true)
+            {
+                killTask("MCPCBox");
+            }
+            if (steam.IsChecked == true)
+            {
+                killTask("Steam");
+            }
         }
 
-        private void mcbox_Checked(object sender, RoutedEventArgs e)
+        private void mw_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            if (Process.GetProcessesByName("MCPCbox").ToList().Count > 0)
-            {
-                //正在运行
-                Process[] processes = Process.GetProcessesByName("MCPCbox");
-                foreach (Process p in processes)
-                {
-                    p.Kill();
-                    p.Close();
-                }
-            }
-            else
-            {
-                //未在运行
-            }
+            //MessageBox.Show("233");
+            string wenjianming = Process.GetCurrentProcess().MainModule.FileName;
+            //当前目录:MessageBox.Show(AppDomain.CurrentDomain.BaseDirectory);
+            //带文件名的目录MessageBox.Show(wenjianming);
+            Process.Start(wenjianming);
+        }
+
+        private void start_Checked(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
+

@@ -61,6 +61,25 @@ namespace badboy_prohibitor.Properties {
         }
         
         /// <summary>
+        ///   查找类似于 (Icon) 的 System.Drawing.Icon 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Icon badboy_prohibitor {
+            get {
+                object obj = ResourceManager.GetObject("badboy_prohibitor", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 lol 的本地化字符串。
+        /// </summary>
+        internal static string String1 {
+            get {
+                return ResourceManager.GetString("String1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 reg add &quot;HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\System&quot; /v &quot;DisableTaskMgr&quot; /t REG_DWORD /F /d 0 的本地化字符串。
         /// </summary>
         internal static string 允许任务管理器 {
