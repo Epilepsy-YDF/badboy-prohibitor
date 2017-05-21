@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.26228.9
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "badboy-prohibitor", "badboy-prohibitor\badboy-prohibitor.csproj", "{CC016C91-B211-43A6-85AB-A4F811351B40}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mainWindowDetector", "mainWindowDetector\mainWindowDetector.csproj", "{50E04AB0-B284-4CE8-ABF6-F4C3044238A7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{CC016C91-B211-43A6-85AB-A4F811351B40}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CC016C91-B211-43A6-85AB-A4F811351B40}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CC016C91-B211-43A6-85AB-A4F811351B40}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50E04AB0-B284-4CE8-ABF6-F4C3044238A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50E04AB0-B284-4CE8-ABF6-F4C3044238A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50E04AB0-B284-4CE8-ABF6-F4C3044238A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50E04AB0-B284-4CE8-ABF6-F4C3044238A7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

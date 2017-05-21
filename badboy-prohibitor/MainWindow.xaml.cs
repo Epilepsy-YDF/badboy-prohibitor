@@ -22,9 +22,10 @@ namespace badboy_prohibitor
     /// <summary>
     /// MainWindow.xaml 的交互逻辑
     /// </summary>
-    
+
     public partial class MainWindow : Window
     {
+        
 
         //public object Interaction { get; private set; }
 
@@ -44,15 +45,51 @@ namespace badboy_prohibitor
             }
             else
             {
-
                 //未在运行
             }
 
         }
+        public void WriteHOSTS (string host)
+        {
+            string s = Environment.SystemDirectory + "\\drivers\\etc\\hosts";
+            if (!File.Exists(s))//判断有没有，没有新建个
+            {
+                StreamWriter sw = new StreamWriter(s, true, Encoding.UTF8);
+                sw.WriteLine();
+                sw.WriteLine(host);
+                sw.Close();
+                sw.Dispose();
+            }
+            System.IO.StreamReader sr = new System.IO.StreamReader(s, true);
+            bool isexist = false;
+            while (!sr.EndOfStream)//判断要不要添加
+            {
+                string ss = sr.ReadLine();
+                if (ss.IndexOf("#") == 0) continue;
+                if (ss == host)
+                {
+                    isexist = true;
+                    break;
+                }
+            }
+            sr.Close();
+            sr.Dispose();
+            if (!isexist)//写入内容
+            {
+                System.IO.StreamWriter sw = new System.IO.StreamWriter(s, true);
+                sw.WriteLine();
+                sw.WriteLine(host);
+                sw.Close();
+                sw.Dispose();
+            }
+        }
+
         public MainWindow()
         {
+            password pw = new password();
+            pw.Show();
+            Visibility = Visibility.Collapsed;
             InitializeComponent();
-
             DispatcherTimer dt = new DispatcherTimer();
             dt.Tick += Dt_Tick;
             dt.Interval = new TimeSpan(0, 0, 1);
@@ -98,37 +135,7 @@ namespace badboy_prohibitor
 
         private void _4399_Checked(object sender, RoutedEventArgs e)
         {
-            string s = Environment.SystemDirectory + "\\drivers\\etc\\hosts";
-            if (!File.Exists(s))//判断有没有，没有新建个
-            {
-                StreamWriter sw = new StreamWriter(s, true, Encoding.UTF8);
-                sw.WriteLine();
-                sw.WriteLine("127.0.0.1 www.4399.com");
-                sw.Close();
-                sw.Dispose();
-            }
-            System.IO.StreamReader sr = new System.IO.StreamReader(s, true);
-            bool isexist = false;
-            while (!sr.EndOfStream)//判断要不要添加
-            {
-                string ss = sr.ReadLine();
-                if (ss.IndexOf("#") == 0) continue;
-                if (ss == "127.0.0.1 www.4399.com")
-                {
-                    isexist = true;
-                    break;
-                }
-            }
-            sr.Close();
-            sr.Dispose();
-            if (!isexist)//写入内容
-            {
-                System.IO.StreamWriter sw = new System.IO.StreamWriter(s, true);
-                sw.WriteLine();
-                sw.WriteLine("127.0.0.1 www.4399.com");
-                sw.Close();
-                sw.Dispose();
-            }
+            WriteHOSTS("127.0.0.1 www.4399.com");
         }
 
         private void _4399_Unchecked(object sender, RoutedEventArgs e)
@@ -142,37 +149,7 @@ namespace badboy_prohibitor
 
         private void _3366_Checked(object sender, RoutedEventArgs e)
         {
-            string s = Environment.SystemDirectory + "\\drivers\\etc\\hosts";
-            if (!File.Exists(s))//判断有没有，没有新建个
-            {
-                StreamWriter sw = new StreamWriter(s, true, Encoding.UTF8);
-                sw.WriteLine();
-                sw.WriteLine("127.0.0.1 www.3366.com");
-                sw.Close();
-                sw.Dispose();
-            }
-            System.IO.StreamReader sr = new System.IO.StreamReader(s, true);
-            bool isexist = false;
-            while (!sr.EndOfStream)//判断要不要添加
-            {
-                string ss = sr.ReadLine();
-                if (ss.IndexOf("#") == 0) continue;
-                if (ss == "127.0.0.1 www.3366.com")
-                {
-                    isexist = true;
-                    break;
-                }
-            }
-            sr.Close();
-            sr.Dispose();
-            if (!isexist)//写入内容
-            {
-                System.IO.StreamWriter sw = new System.IO.StreamWriter(s, true);
-                sw.WriteLine();
-                sw.WriteLine("127.0.0.1 www.3366.com");
-                sw.Close();
-                sw.Dispose();
-            }
+            WriteHOSTS("127.0.0.1 www.3366.com");
         }
 
 
@@ -186,37 +163,7 @@ namespace badboy_prohibitor
 
         private void _7k7k_Checked(object sender, RoutedEventArgs e)
         {
-            string s = Environment.SystemDirectory + "\\drivers\\etc\\hosts";
-            if (!File.Exists(s))//判断有没有，没有新建个
-            {
-                StreamWriter sw = new StreamWriter(s, true, Encoding.UTF8);
-                sw.WriteLine();
-                sw.WriteLine("127.0.0.1 www.7k7k.com");
-                sw.Close();
-                sw.Dispose();
-            }
-            System.IO.StreamReader sr = new System.IO.StreamReader(s, true);
-            bool isexist = false;
-            while (!sr.EndOfStream)//判断要不要添加
-            {
-                string ss = sr.ReadLine();
-                if (ss.IndexOf("#") == 0) continue;
-                if (ss == "127.0.0.1    www.7k7k.com")
-                {
-                    isexist = true;
-                    break;
-                }
-            }
-            sr.Close();
-            sr.Dispose();
-            if (!isexist)//写入内容
-            {
-                System.IO.StreamWriter sw = new System.IO.StreamWriter(s, true);
-                sw.WriteLine();
-                sw.WriteLine("127.0.0.1 www.7k7k.com");
-                sw.Close();
-                sw.Dispose();
-            }
+            WriteHOSTS("127.0.0.1 www.7k7k.com");
 
         }
 
@@ -246,13 +193,6 @@ namespace badboy_prohibitor
             p.StandardInput.WriteLine(str + Properties.Resources.禁止任务管理器);
         }
 
-
-        private void exit_Click(object sender, RoutedEventArgs e)
-        {
-
-            App.Current.Shutdown();
-
-        }
 
         private void dsbtaskmgr_Unchecked_1(object sender, RoutedEventArgs e)
         {
@@ -288,42 +228,6 @@ namespace badboy_prohibitor
             string content = File.ReadAllText(path).Replace("127.0.0.1 7k7k.com", "");
             File.WriteAllText(path, content, Encoding.UTF8);
         }
-
-        private void _7k7k_Checked_1(object sender, RoutedEventArgs e)
-        {
-            string s = Environment.SystemDirectory + "\\drivers\\etc\\hosts";
-            if (!File.Exists(s))//判断有没有，没有新建个
-            {
-                StreamWriter sw = new StreamWriter(s, true, Encoding.UTF8);
-                sw.WriteLine();
-                sw.WriteLine("127.0.0.1 www.7k7k.com");
-                sw.Close();
-                sw.Dispose();
-            }
-            System.IO.StreamReader sr = new System.IO.StreamReader(s, true);
-            bool isexist = false;
-            while (!sr.EndOfStream)//判断要不要添加
-            {
-                string ss = sr.ReadLine();
-                if (ss.IndexOf("#") == 0) continue;
-                if (ss == "127.0.0.1 www.7k7k.com")
-                {
-                    isexist = true;
-                    break;
-                }
-            }
-            sr.Close();
-            sr.Dispose();
-            if (!isexist)//写入内容
-            {
-                System.IO.StreamWriter sw = new System.IO.StreamWriter(s, true);
-                sw.WriteLine();
-                sw.WriteLine("127.0.0.1 www.7k7k.com");
-                sw.Close();
-                sw.Dispose();
-            }
-        }
-
         private void Dt_Tick(object sender, EventArgs e)
         {
             if (mcbox.IsChecked == true)
@@ -338,14 +242,63 @@ namespace badboy_prohibitor
 
         private void mw_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            //MessageBox.Show("233");
-            string wenjianming = Process.GetCurrentProcess().MainModule.FileName;
-            //当前目录:MessageBox.Show(AppDomain.CurrentDomain.BaseDirectory);
-            //带文件名的目录MessageBox.Show(wenjianming);
-            Process.Start(wenjianming);
+            e.Cancel = true;
+            if (pw.IsChecked == true)
+            {
+                //MessageBox.Show("确定");
+                if (pb.Password == "")
+                {
+                    MessageBox.Show("请在密码框中输入你的密码", "警告");
+                }
+                else
+                {
+                    password pw = new password();  //新建实例对象
+                    pw.ShowDialog();
+                }
+
+                
+
+            }
+            else
+            {
+                System.Environment.Exit(0);
+            }
+
+        }
+        private void steam_Checked(object sender, RoutedEventArgs e)
+        {
+
         }
 
-        private void start_Checked(object sender, RoutedEventArgs e)
+        private void discNet_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void pb_KeyUp(object sender, KeyEventArgs e)
+        {
+            //MessageBox.Show(pb.Password);
+            string jiami = pb.Password;
+            byte[] bytes = Encoding.Default.GetBytes(jiami);
+            string ok = Convert.ToBase64String(bytes);
+            System.IO.File.WriteAllText("D:/test.txt", ok, Encoding.Default);
+
+        }
+
+        private void mw_Loaded(object sender, RoutedEventArgs e)
+        {
+            Process[] app = Process.GetProcessesByName("360Tray");
+            if (app.Length > 0)
+            {
+                MessageBox.Show("360正在运行，是否关闭！", "经过");
+            }
+            else
+            {
+                //System.Diagnostics.Process.Start("AMS.exe");
+            }
+        }
+
+        private void savepass_Click(object sender, RoutedEventArgs e)
         {
 
         }

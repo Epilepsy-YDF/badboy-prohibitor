@@ -23,5 +23,10 @@ namespace badboy_prohibitor
         {
             InitializeComponent();
         }
+
+        private void ok_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
     }
 }

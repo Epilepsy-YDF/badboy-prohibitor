@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\badboy-prohibitor"
   ],
-  "SelectedNode": "\\badboy-prohibitor.sln",
+  "SelectedNode": "\\badboy-prohibitor\\About.xaml.cs",
   "PreviewInSolutionExplorer": false
 }

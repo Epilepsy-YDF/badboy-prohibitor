@@ -1,0 +1,6 @@
+C:\Users\HappyLittleC\Source\Repos\badboy-prohibitor\mainWindowDetector\bin\Debug\mainWindowDetector.exe.config
+C:\Users\HappyLittleC\Source\Repos\badboy-prohibitor\mainWindowDetector\bin\Debug\mainWindowDetector.exe
+C:\Users\HappyLittleC\Source\Repos\badboy-prohibitor\mainWindowDetector\bin\Debug\mainWindowDetector.pdb
+C:\Users\HappyLittleC\Source\Repos\badboy-prohibitor\mainWindowDetector\obj\Debug\mainWindowDetector.csprojResolveAssemblyReference.cache
+C:\Users\HappyLittleC\Source\Repos\badboy-prohibitor\mainWindowDetector\obj\Debug\mainWindowDetector.exe
+C:\Users\HappyLittleC\Source\Repos\badboy-prohibitor\mainWindowDetector\obj\Debug\mainWindowDetector.pdb

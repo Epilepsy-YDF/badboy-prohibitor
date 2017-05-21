@@ -5,42 +5,46 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:badboy_prohibitor"
         mc:Ignorable="d"
-        Title="badboy-prihibitor V1.0" Height="448" Width="840" FontFamily="Microsoft YaHei UI Light" FontSize="16" ResizeMode="NoResize" Closing="mw_Closing">
+        Title="badboy-prihibitor V1.0" Height="471" Width="840" FontFamily="Microsoft YaHei UI Light" FontSize="16" ResizeMode="NoResize" Closing="mw_Closing" Loaded="mw_Loaded">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="65*"/>
-            <ColumnDefinition Width="164*"/>
-            <ColumnDefinition Width="49*"/>
+            <ColumnDefinition Width="195*"/>
+            <ColumnDefinition Width="374*"/>
+            <ColumnDefinition Width="118*"/>
+            <ColumnDefinition Width="31*"/>
+            <ColumnDefinition Width="116*"/>
         </Grid.ColumnDefinitions>
-        <GroupBox x:Name="gsnman" Header="游戏/软件/网络管理" HorizontalAlignment="Left" Height="387" Margin="10,10,0,0" VerticalAlignment="Top" Width="259" Grid.ColumnSpan="2">
-            <Grid HorizontalAlignment="Left" Height="387" VerticalAlignment="Top" Width="259">
-                <CheckBox x:Name="tgp" Content="禁止TGP运行" HorizontalAlignment="Left" VerticalAlignment="Top" Checked="CheckBox_Checked" IsEnabled="False"/>
-                <CheckBox x:Name="lol" Content="禁止英雄联盟运行" HorizontalAlignment="Left" Margin="0,24,0,0" VerticalAlignment="Top" IsEnabled="False"/>
-                <CheckBox x:Name="crossfire" Content="禁止穿越火线运行" HorizontalAlignment="Left" Margin="0,48,0,0" VerticalAlignment="Top" IsEnabled="False"/>
-                <CheckBox x:Name="speed" Content="禁止QQ飞车运行" HorizontalAlignment="Left" Margin="0,72,0,0" VerticalAlignment="Top" IsEnabled="False"/>
-                <CheckBox x:Name="x5" Content="禁止QQ炫舞运行" HorizontalAlignment="Left" Margin="0,96,0,0" VerticalAlignment="Top" IsEnabled="False"/>
-                <CheckBox x:Name="dnf" Content="禁止地下城与勇士运行" HorizontalAlignment="Left" Margin="0,120,0,0" VerticalAlignment="Top" IsEnabled="False"/>
-                <CheckBox x:Name="mc" Content="禁止我的世界运行" HorizontalAlignment="Right" Margin="0,144,111,0" VerticalAlignment="Top" IsEnabled="False"/>
-                <CheckBox x:Name="mcbox" Content="禁止炸妈盒子运行" HorizontalAlignment="Left" Margin="0,168,0,0" VerticalAlignment="Top"/>
-                <CheckBox x:Name="steam" Content="禁止Steam 运行" HorizontalAlignment="Left" Margin="0,192,0,0" VerticalAlignment="Top"/>
-                <CheckBox x:Name="_4399" Content="禁止访问4399" Margin="0,216,139,0" VerticalAlignment="Top" Checked="_4399_Checked" Unchecked="_4399_Unchecked"/>
-                <CheckBox x:Name="_3366" Content="禁止访问3366" HorizontalAlignment="Left" Margin="0,240,0,0" VerticalAlignment="Top" Checked="_3366_Checked" Unchecked="_3366_Unchecked"/>
-                <CheckBox x:Name="_7k7k" Content="禁止访问7k7k" HorizontalAlignment="Left" Margin="0,264,0,0" VerticalAlignment="Top" Unchecked="_7k7k_Unchecked" Checked="_7k7k_Checked_1"/>
-                <CheckBox x:Name="selectAll" Content="全选" HorizontalAlignment="Left" Margin="194,288,0,0" VerticalAlignment="Top" Checked="selectAll_Checked" Unchecked="selectAll_Unchecked"/>
-                <Button x:Name="custom" Content="自定义规则" HorizontalAlignment="Left" Margin="0,312,0,0" VerticalAlignment="Top" Width="246" Height="45" FontSize="24" IsEnabled="False"/>
+        <GroupBox x:Name="gsnman" Header="游戏/软件/网络管理" HorizontalAlignment="Left" Height="410" Margin="10,10,0,0" VerticalAlignment="Top" Width="259" Grid.ColumnSpan="2">
+            <Grid HorizontalAlignment="Left" Height="399" VerticalAlignment="Top" Width="259" Margin="0,0,-12,-26">
+                <CheckBox x:Name="tgp" Content="禁止TGP运行" HorizontalAlignment="Left" VerticalAlignment="Top" Checked="CheckBox_Checked" IsEnabled="False" Margin="0,32,0,0"/>
+                <CheckBox x:Name="lol" Content="禁止英雄联盟运行" HorizontalAlignment="Left" Margin="0,56,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+                <CheckBox x:Name="crossfire" Content="禁止穿越火线运行" HorizontalAlignment="Left" Margin="0,80,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+                <CheckBox x:Name="speed" Content="禁止QQ飞车运行" HorizontalAlignment="Left" Margin="0,104,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+                <CheckBox x:Name="x5" Content="禁止QQ炫舞运行" HorizontalAlignment="Left" Margin="0,128,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+                <CheckBox x:Name="dnf" Content="禁止地下城与勇士运行" HorizontalAlignment="Left" Margin="0,152,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+                <CheckBox x:Name="mc" Content="禁止我的世界运行" HorizontalAlignment="Right" Margin="0,176,111,0" VerticalAlignment="Top" IsEnabled="False"/>
+                <CheckBox x:Name="mcbox" Content="禁止炸妈盒子运行" HorizontalAlignment="Left" Margin="0,200,0,0" VerticalAlignment="Top"/>
+                <CheckBox x:Name="steam" Content="禁止Steam 运行" HorizontalAlignment="Left" Margin="0,224,0,0" VerticalAlignment="Top" Checked="steam_Checked"/>
+                <CheckBox x:Name="_4399" Content="禁止访问4399" Margin="0,248,139,0" VerticalAlignment="Top" Checked="_4399_Checked" Unchecked="_4399_Unchecked"/>
+                <CheckBox x:Name="_3366" Content="禁止访问3366" HorizontalAlignment="Left" Margin="0,272,0,0" VerticalAlignment="Top" Checked="_3366_Checked" Unchecked="_3366_Unchecked"/>
+                <CheckBox x:Name="_7k7k" Content="禁止访问7k7k" HorizontalAlignment="Left" Margin="0,296,0,0" VerticalAlignment="Top" Unchecked="_7k7k_Unchecked" Checked="_7k7k_Checked"/>
+                <CheckBox x:Name="selectAll" Content="全选" HorizontalAlignment="Left" Margin="194,312,0,0" VerticalAlignment="Top" Checked="selectAll_Checked" Unchecked="selectAll_Unchecked"/>
+                <Button x:Name="custom" Content="自定义规则" HorizontalAlignment="Left" Margin="0,336,0,0" VerticalAlignment="Top" Width="246" Height="45" FontSize="24" IsEnabled="False"/>
+                <CheckBox x:Name="discNet" Content="断网" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,8,207,0" Checked="discNet_Checked"/>
             </Grid>
         </GroupBox>
-        <Button x:Name="About" Content="关于本软件" HorizontalAlignment="Left" Margin="422,375,0,0" VerticalAlignment="Top" Width="100" Click="About_Click" Grid.ColumnSpan="2" Grid.Column="1"/>
-        <Button x:Name="exit" Content="退出" HorizontalAlignment="Left" Margin="37,375,0,0" VerticalAlignment="Top" Width="100" Click="exit_Click" Grid.Column="2"/>
-        <GroupBox x:Name="sft" Header="安全性" HorizontalAlignment="Left" Height="150" Margin="388,10,0,0" VerticalAlignment="Top" Width="239" Grid.ColumnSpan="2" Grid.Column="1">
+        <Button x:Name="About" Content="关于" HorizontalAlignment="Left" Margin="4,396,0,0" VerticalAlignment="Top" Width="100" Click="About_Click" Grid.Column="4"/>
+        <GroupBox x:Name="sft" Header="安全性" HorizontalAlignment="Left" Height="150" Margin="14,10,0,0" VerticalAlignment="Top" Width="239" Grid.ColumnSpan="3" Grid.Column="2">
             <Grid HorizontalAlignment="Left" Width="239" Margin="0,0,-12,-45">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="24*"/>
+                    <RowDefinition Height="145*"/>
+                </Grid.RowDefinitions>
                 <CheckBox x:Name="pw" Content="设置启动/退出密码" HorizontalAlignment="Left" VerticalAlignment="Top" Checked="pw_Checked" Unchecked="pw_Unchecked"/>
-                <PasswordBox x:Name="pb" HorizontalAlignment="Left" Margin="20,24,0,0" VerticalAlignment="Top" Width="209" IsEnabled="False"/>
-                <CheckBox x:Name="dsbtaskmgr" Content="禁用任务管理器" HorizontalAlignment="Left" Margin="-1,51,0,0" VerticalAlignment="Top" Checked="dsbtaskmgr_Checked" Unchecked="dsbtaskmgr_Unchecked_1"/>
-                <CheckBox x:Name="start" Content="开机启动" HorizontalAlignment="Left" Margin="-1,75,0,0" VerticalAlignment="Top" Unchecked="dsbtaskmgr_Unchecked_1" Checked="start_Checked"/>
+                <PasswordBox x:Name="pb" HorizontalAlignment="Left" Margin="20,0,0,0" VerticalAlignment="Top" Width="209" IsEnabled="False" Grid.Row="1" KeyUp="pb_KeyUp"/>
+                <CheckBox x:Name="dsbtaskmgr" Content="禁用任务管理器" HorizontalAlignment="Left" Margin="-1,27,0,0" VerticalAlignment="Top" Checked="dsbtaskmgr_Checked" Unchecked="dsbtaskmgr_Unchecked_1" Grid.Row="1"/>
+                <CheckBox x:Name="start" Content="开机启动" HorizontalAlignment="Left" Margin="-1,51,0,0" VerticalAlignment="Top" Unchecked="dsbtaskmgr_Unchecked_1"  Grid.Row="1"/>
             </Grid>
         </GroupBox>
-        <Canvas HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100"/>
-
     </Grid>
 </Window>

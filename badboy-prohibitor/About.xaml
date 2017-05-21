@@ -1,16 +1,22 @@
-﻿<Window x:Class="badboy_prohibitor.About"
+﻿<Window x:Name="about" x:Class="badboy_prohibitor.About"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:badboy_prohibitor"
         mc:Ignorable="d"
-        Title="About" Height="300" Width="300">
-    <Grid>
+        Title="关于" Height="303.385" Width="341.231" FontSize="16">
+    <Grid Margin="0,0,2,0">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="67*"/>
-            <ColumnDefinition Width="225*"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0*"/>
         </Grid.ColumnDefinitions>
-        <Label x:Name="Text" Content="这里还没有做好！" HorizontalAlignment="Left" Margin="36,99,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="44" Width="212" Background="White" FontSize="24"/>
+        <Label x:Name="tt" Content="熊孩子阻止者" HorizontalAlignment="Left" Margin="91,10,0,0" VerticalAlignment="Top" FontSize="22" Height="38" Width="142"/>
+        <Label Content="版本：1.0 Release" HorizontalAlignment="Left" Margin="10,53,0,0" VerticalAlignment="Top" Height="30" Width="109"/>
+        <Label x:Name="mb" Content="制作人员：熊孩子阻止者研发团队" HorizontalAlignment="Left" Margin="10,83,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="des" Content="说明：" HorizontalAlignment="Left" Margin="10,113,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="desc" HorizontalAlignment="Left" Height="77" Margin="10,143,0,0" TextWrapping="Wrap" Text="这个软件能让玩你电脑的熊孩子无法破坏你的电脑。" VerticalAlignment="Top" Width="280" IsEnabled="False"/>
+        <ScrollBar HorizontalAlignment="Left" Margin="290,143,0,0" VerticalAlignment="Top" Height="77" IsEnabled="False" Maximum="0"/>
+        <Button x:Name="ok" Content="确定" HorizontalAlignment="Left" Margin="232,225,0,0" VerticalAlignment="Top" Width="75" Click="ok_Click"/>
     </Grid>
 </Window>
